@@ -1,6 +1,5 @@
 package jm.task.core.jdbc.util;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -30,6 +29,7 @@ public class Util {
             settings.put(Environment.PASS, DB_PASSWORD);
             settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
             settings.put(Environment.SHOW_SQL, "true");
+            settings.put(Environment.FORMAT_SQL, "true");
 
             config.setProperties(settings);
             config.addAnnotatedClass(User.class);
