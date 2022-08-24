@@ -27,8 +27,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.createNativeQuery(sql).executeUpdate();
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null && (transaction.getStatus() == TransactionStatus.ACTIVE
-                    || transaction.getStatus() == TransactionStatus.MARKED_ROLLBACK)) {
+            if (transaction != null && transaction.getStatus() == TransactionStatus.ACTIVE) {
                 transaction.rollback();
             }
             System.out.println(e.getMessage());
@@ -44,8 +43,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.createNativeQuery(sql).executeUpdate();
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null && (transaction.getStatus() == TransactionStatus.ACTIVE
-                    || transaction.getStatus() == TransactionStatus.MARKED_ROLLBACK)) {
+            if (transaction != null && transaction.getStatus() == TransactionStatus.ACTIVE) {
                 transaction.rollback();
             }
             System.out.println(e.getMessage());
@@ -61,8 +59,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.save(user);
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null && (transaction.getStatus() == TransactionStatus.ACTIVE
-                    || transaction.getStatus() == TransactionStatus.MARKED_ROLLBACK)) {
+            if (transaction != null && transaction.getStatus() == TransactionStatus.ACTIVE) {
                 transaction.rollback();
             }
             System.out.printf(e.getMessage());
@@ -79,8 +76,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.delete(user);
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null && (transaction.getStatus() == TransactionStatus.ACTIVE
-                    || transaction.getStatus() == TransactionStatus.MARKED_ROLLBACK)) {
+            if (transaction != null && transaction.getStatus() == TransactionStatus.ACTIVE) {
                 transaction.rollback();
             }
             System.out.println(e.getMessage());
@@ -106,8 +102,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.createQuery("delete from User").executeUpdate();
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null && (transaction.getStatus() == TransactionStatus.ACTIVE
-                    || transaction.getStatus() == TransactionStatus.MARKED_ROLLBACK)) {
+            if (transaction != null && transaction.getStatus() == TransactionStatus.ACTIVE) {
                 transaction.rollback();
             }
             System.out.println(e.getMessage());
